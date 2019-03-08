@@ -1,0 +1,19 @@
+.navigation {
+    position: fixed;
+    top: 40%;
+    left: 0;
+    right: 0;
+    bottom: 40%;
+    visibility: hidden;
+    background-color: #ffffff; // fa8100
+    padding-top: 16px;
+    transition: all .3s ease;
+    opacity: 0;
+    overflow: auto;
+    &.show {
+        visibility: visible;
+        top: 0;
+        bottom: 0;
+        opacity: 1;
+    }
+}

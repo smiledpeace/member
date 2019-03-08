@@ -3,4 +3,49 @@ html, body {
 }
 #app {
     height: 100%;
+    overflow: auto;
+}
+.card {
+    width: 344px;
+    margin: auto;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+    transition: all .3s ease;
+    height: 300px;
+    overflow: hidden;
+    &.full-screen {
+        height: 374px;
+    }
+    &.ha {
+        height: auto;
+    }
+}
+.card-img_box{
+    height: 194px;
+}
+.card-img {
+    height: 194px;
+    width: 100%;
+}
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 16px;
+    padding-top: 12px;
+    &_second {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 14px;
+        padding-top: 14px;
+    }
+}
+.card-info {
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 14px;
+}
+
+.move10 {
+
+    transform: translate3d(0, 10px,  0);
 }
