@@ -29,7 +29,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		1: 0
+/******/ 		2: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -12940,10 +12940,10 @@ exports.default = {
     },
     components: {
         index: function index() {
-            return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 91));
+            return __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 91));
         },
         test: function test() {
-            return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, 104));
+            return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 92));
         }
     }
 };
@@ -13180,29 +13180,6 @@ var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/*
-//                    _ooOoo_
-//                   o8888888o
-//                   88" . "88
-//                   (| -_- |)
-//                    O\ = /O
-//                ____/`---'\____
-//              .   ' \\| |// `.
-//               / \\||| : |||// \
-//             / _||||| -:- |||||- \
-//               | | \\\ - /// | |
-//             | \_| ''\---/'' | |
-//              \ .-\__ `-` ___/-. /
-//           ___`. .' /--.--\ `. . __
-//        ."" '< `.___\_<|>_/___.' >'"".
-//       | | : `- \`.;`\ _ /`;.`/ - ` : | |
-//         \ \ `-. \_ __\ /__ _/ .-` / /
-// ======`-.____`-.___\_____/___.-`____.-'======
-//                    `=---='
-//
-// .............................................
-//          佛祖保佑             永无BUG
-*/
 // findIndex 兼容
 if (!Array.prototype.findIndex) {
     Object.defineProperty(Array.prototype, 'findIndex', {
@@ -13422,24 +13399,6 @@ var api = {
         });
     },
 
-    // 显示员工姓名
-    calculatedName: function calculatedName(excel_nickname, excel_user_id, is_hxo_view) {
-        if (is_hxo_view) {
-            return '';
-        }
-        var d_name = '',
-            nickname;
-        // console.log(excel_nickname, excel_user_id);
-
-        if (excel_nickname) {
-            d_name = excel_nickname + '(已离职)';
-        }
-        ;
-        nickname = excel_user_id && _getUserInfo(excel_user_id) ? _getUserInfo(excel_user_id).nickname : d_name;
-
-        return nickname;
-    },
-
     isPlainObject: function isPlainObject(obj) {
         var proto, Ctor;
 
@@ -13467,50 +13426,6 @@ var api = {
         } else {
             return [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         }
-    },
-
-    // 对象的深度复制
-    clone: function copy(copyObj) {
-        var type = Object.prototype.toString.call(copyObj);
-        if (~['[object Array]', '[object Object]'].indexOf(type)) {
-            var target = type === '[object Array]' ? [] : {};
-            for (var key in copyObj) {
-                target[key] = copy(copyObj[key]);
-            }
-            return target;
-        }
-        return copyObj;
-    },
-    /**
-     * 对象的深度复制
-     * @param obj
-     * @returns {{}}
-     */
-    objectDepthCopy: function objectDepthCopy(obj) {
-        var temp = null;
-        if (obj && !(obj instanceof Array)) {
-            temp = {};
-            for (var item in obj) {
-                if (obj[item] && (0, _typeof3.default)(obj[item]) == 'object') {
-                    //if(item == '')
-                    temp[item] = this.objectDepthCopy(obj[item]);
-                } else {
-                    temp[item] = obj[item];
-                }
-            }
-        } else {
-            temp = [];
-            if (obj) {
-                for (var i = 0, _i = obj.length; i < _i; i++) {
-                    if (obj[i] && (0, _typeof3.default)(obj[i]) == 'object') {
-                        temp[i] = this.objectDepthCopy(obj[i]);
-                    } else {
-                        temp[i] = obj[i];
-                    }
-                }
-            }
-        }
-        return temp;
     },
     getCss: function getCss(o, key) {
         return o.currentStyle ? o.currentStyle[key] : document.defaultView.getComputedStyle(o, false)[key];
@@ -13670,56 +13585,6 @@ var api = {
             arr[i] = obj[keys[i]];
         }
         return arr;
-    },
-
-    /**
-     * 计算返回值
-     * @param  {Object} item excel字段
-     * @return {String}      [description]
-     */
-    judgeExcel: function judgeExcel(item) {
-        if (!item.value) {
-            return '';
-        }
-        if (item.value.type == 28) {
-            return item.hint;
-        }
-        if (item.value.type == 4 || item.value.type == 19) {
-            if (item.value.files && item.value.files.length) {
-                var html = '';
-                item.value.files.forEach(function (file) {
-                    if (file.type == 'pic' || file.type == 1) {
-                        html += '<img src="' + file.file_url + '" onclick="window.rootVue.vm.$preview.showImgDetail(this)" style="width: 30px; height: 30px;cursor: pointer;"/> ';
-                    } else {
-                        var name = file.file_name || file.title;
-                        var url = name && '/newFilePreview?type=' + name.split('.').pop() + '&file_name=' + name + '&file_id=' + (file.file_id || file._id);
-                        html += '<a href="' + url + '" class="link">' + name + '</a>';
-                    }
-                });
-                return html;
-            } else {
-                return '未填写';
-            }
-        }
-        if (item.value.value_name) {
-            return item.value.value_name;
-        }
-        if (item.value.value_names && item.value.value_names.length) {
-            return item.value.value_names[0];
-        }
-        if (item.value.value) {
-            return item.value.value;
-        }
-        if (item.value.values && item.value.values.length) {
-            return item.value.values[0];
-        }
-        if (item.value.files && item.value.files.length) {
-            return item.value.files;
-        }
-        if (item.value.table && item.value.table.length) {
-            return item.value.table.length + '项';
-        }
-        return '未填写';
     },
     sendNotice: function sendNotice(type, timeout) {
         if (!type) {
@@ -13915,7 +13780,6 @@ var api = {
         };
     },
 
-
     //去掉字符串前后空格
     trim: function trim(str) {
         return 'undefined' !== typeof str.trim ? str.trim() : str.replace(/(^\s*)|(\s*$)/g, '');
@@ -13945,7 +13809,6 @@ var api = {
         url = url.substr(url.lastIndexOf('.') + 1);
         return true === islower ? url.toLowerCase() : url.toUpperCase();
     },
-
 
     //字符串转日期
     str2date: function str2date(strdate) {
@@ -14078,24 +13941,6 @@ var api = {
         } else if ('ORIGIN' === mode) {
             return url.replace(/\!\w*/, '');
         }
-    },
-
-    //筛选用户
-    queryusers: function queryusers(keywords, source) {
-        var res = [];
-        keywords = keywords.toUpperCase();
-        if (keywords !== '') {
-            api.each(source, function (user, index) {
-                if (user.nickname_en && -1 < user.nickname_en.replace('/,/g', '').toUpperCase().indexOf(keywords)) {
-                    res.push(user);
-                    return true;
-                } else if (user.nickname && -1 < user.nickname.replace('/,/g', '').toUpperCase().indexOf(keywords)) {
-                    res.push(user);
-                    return true;
-                }
-            });
-        }
-        return res;
     },
     formatDate: function formatDate(date, format) {
         if (Object.prototype.toString.call(date) != '[object Date]') {

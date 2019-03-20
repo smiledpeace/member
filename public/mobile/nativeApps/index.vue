@@ -27,6 +27,13 @@
             </div>
 
         </div>
+
+        <div class="video-box">
+
+            <video ref="video" src="https://groups35-notimage.b0.upaiyun.com/2019/03/bf6fea24_adbe3124960236c5f061b9e000a7faa7.mp4" preload="metadata"></video>
+        </div>
+
+        <button @click="play">play</button>
     </div>
 </template>
 <script>
@@ -48,6 +55,10 @@
             showNavigation() {
 
                 this.show = true;
+            },
+            play() {
+
+                this.$refs.video.play()
             }
         },
         props: {

@@ -1,14 +1,134 @@
 webpackJsonp([0],{
 
+/***/ 100:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "tab"
+  }, [_vm._l((_vm.items), function(item) {
+    return _c('div', {
+      staticClass: "tab-item"
+    }, [_vm._v(_vm._s(item.label))])
+  }), _vm._v(" "), _c('div', {
+    staticClass: "tab-bar"
+  })], 2)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-52999140", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 101:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('tab'), _vm._v(" "), _c('div', {
+    staticClass: "pt10"
+  }), _vm._v(" "), _c('card', {
+    class: {
+      'move10': _vm.show
+    },
+    on: {
+      "on-click": _vm.showNavigation
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "pt10"
+  }), _vm._v(" "), _c('card', {
+    class: {
+      'move10': _vm.show
+    },
+    on: {
+      "on-click": _vm.showNavigation
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "pt10"
+  }), _vm._v(" "), _c('card', {
+    class: {
+      'move10': _vm.show
+    },
+    on: {
+      "on-click": _vm.showNavigation
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "navigation",
+    class: {
+      'show': _vm.show
+    },
+    on: {
+      "click": function($event) {
+        _vm.show = false;
+      }
+    }
+  }, [_c('div', {
+    staticClass: "card",
+    class: {
+      'ha': _vm.show
+    }
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _c('div', {
+    staticClass: "video-box"
+  }, [_c('video', {
+    ref: "video",
+    attrs: {
+      "src": "https://groups35-notimage.b0.upaiyun.com/2019/03/bf6fea24_adbe3124960236c5f061b9e000a7faa7.mp4",
+      "preload": "metadata"
+    }
+  })]), _vm._v(" "), _c('button', {
+    on: {
+      "click": _vm.play
+    }
+  }, [_vm._v("play")])], 1)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "card-img_box"
+  }, [_c('img', {
+    staticClass: "card-img",
+    attrs: {
+      "src": "/images/wind.jpg",
+      "alt": ""
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "p16"
+  }, [_c('div', {
+    staticClass: "card-title"
+  }, [_vm._v("望岳")]), _vm._v(" "), _c('div', {
+    staticClass: "card-title_second"
+  }, [_vm._v("杜甫（唐）")]), _vm._v(" "), _c('div', {
+    staticClass: "card-info"
+  }, [_c('p', {
+    staticClass: "pb10"
+  }, [_vm._v("岱宗夫如何，齐鲁青未了。")]), _vm._v(" "), _c('p', {
+    staticClass: "pb10"
+  }, [_vm._v("造化钟神秀，阴阳割昏晓。")]), _vm._v(" "), _c('p', {
+    staticClass: "pb10"
+  }, [_vm._v("荡胸生层云，决眦入归鸟。")]), _vm._v(" "), _c('p', [_vm._v("会当凌绝顶，一览众山小。")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-5b45efec", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ 91:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(41)(
   /* script */
-  __webpack_require__(92),
+  __webpack_require__(94),
   /* template */
-  __webpack_require__(99),
+  __webpack_require__(101),
   /* styles */
   null,
   /* scopeId */
@@ -41,7 +161,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 92:
+/***/ 94:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51,16 +171,23 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _card_ = __webpack_require__(93);
+var _card_ = __webpack_require__(95);
 
 var _card_2 = _interopRequireDefault(_card_);
 
-var _tab = __webpack_require__(96);
+var _tab = __webpack_require__(98);
 
 var _tab2 = _interopRequireDefault(_tab);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -108,6 +235,10 @@ exports.default = {
         showNavigation: function showNavigation() {
 
             this.show = true;
+        },
+        play: function play() {
+
+            this.$refs.video.play();
         }
     },
     props: {
@@ -124,15 +255,15 @@ exports.default = {
 
 /***/ }),
 
-/***/ 93:
+/***/ 95:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(41)(
   /* script */
-  __webpack_require__(94),
+  __webpack_require__(96),
   /* template */
-  __webpack_require__(95),
+  __webpack_require__(97),
   /* styles */
   null,
   /* scopeId */
@@ -165,7 +296,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 94:
+/***/ 96:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -222,7 +353,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 95:
+/***/ 97:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -272,15 +403,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 96:
+/***/ 98:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(41)(
   /* script */
-  __webpack_require__(97),
+  __webpack_require__(99),
   /* template */
-  __webpack_require__(98),
+  __webpack_require__(100),
   /* styles */
   null,
   /* scopeId */
@@ -313,7 +444,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 97:
+/***/ 99:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -344,114 +475,6 @@ exports.default = {
     props: {},
     components: {}
 };
-
-/***/ }),
-
-/***/ 98:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "tab"
-  }, [_vm._l((_vm.items), function(item) {
-    return _c('div', {
-      staticClass: "tab-item"
-    }, [_vm._v(_vm._s(item.label))])
-  }), _vm._v(" "), _c('div', {
-    staticClass: "tab-bar"
-  })], 2)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-52999140", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('tab'), _vm._v(" "), _c('div', {
-    staticClass: "pt10"
-  }), _vm._v(" "), _c('card', {
-    class: {
-      'move10': _vm.show
-    },
-    on: {
-      "on-click": _vm.showNavigation
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "pt10"
-  }), _vm._v(" "), _c('card', {
-    class: {
-      'move10': _vm.show
-    },
-    on: {
-      "on-click": _vm.showNavigation
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "pt10"
-  }), _vm._v(" "), _c('card', {
-    class: {
-      'move10': _vm.show
-    },
-    on: {
-      "on-click": _vm.showNavigation
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "navigation",
-    class: {
-      'show': _vm.show
-    },
-    on: {
-      "click": function($event) {
-        _vm.show = false;
-      }
-    }
-  }, [_c('div', {
-    staticClass: "card",
-    class: {
-      'ha': _vm.show
-    }
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1)])])], 1)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "card-img_box"
-  }, [_c('img', {
-    staticClass: "card-img",
-    attrs: {
-      "src": "/images/wind.jpg",
-      "alt": ""
-    }
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "p16"
-  }, [_c('div', {
-    staticClass: "card-title"
-  }, [_vm._v("望岳")]), _vm._v(" "), _c('div', {
-    staticClass: "card-title_second"
-  }, [_vm._v("杜甫（唐）")]), _vm._v(" "), _c('div', {
-    staticClass: "card-info"
-  }, [_c('p', {
-    staticClass: "pb10"
-  }, [_vm._v("岱宗夫如何，齐鲁青未了。")]), _vm._v(" "), _c('p', {
-    staticClass: "pb10"
-  }, [_vm._v("造化钟神秀，阴阳割昏晓。")]), _vm._v(" "), _c('p', {
-    staticClass: "pb10"
-  }, [_vm._v("荡胸生层云，决眦入归鸟。")]), _vm._v(" "), _c('p', [_vm._v("会当凌绝顶，一览众山小。")])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-5b45efec", module.exports)
-  }
-}
 
 /***/ })
 
