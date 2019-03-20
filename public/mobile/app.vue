@@ -22,7 +22,8 @@
             param4: String,
         },
         components: {
-            index: () => import('./nativeApps/index')
+            index: () => import('./nativeApps/index'),
+            test: () => import('./nativeApps/test')
         },
     }
 </script>

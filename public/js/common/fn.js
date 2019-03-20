@@ -1,26 +1,4 @@
-/*
-//                    _ooOoo_
-//                   o8888888o
-//                   88" . "88
-//                   (| -_- |)
-//                    O\ = /O
-//                ____/`---'\____
-//              .   ' \\| |// `.
-//               / \\||| : |||// \
-//             / _||||| -:- |||||- \
-//               | | \\\ - /// | |
-//             | \_| ''\---/'' | |
-//              \ .-\__ `-` ___/-. /
-//           ___`. .' /--.--\ `. . __
-//        ."" '< `.___\_<|>_/___.' >'"".
-//       | | : `- \`.;`\ _ /`;.`/ - ` : | |
-//         \ \ `-. \_ __\ /__ _/ .-` / /
-// ======`-.____`-.___\_____/___.-`____.-'======
-//                    `=---='
-//
-// .............................................
-//          佛祖保佑             永无BUG
-*/
+
 // findIndex 兼容
 if (!Array.prototype.findIndex) {
     Object.defineProperty(Array.prototype, 'findIndex', {
@@ -227,22 +205,6 @@ const api = {
             (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
         )
     },
-    // 显示员工姓名
-    calculatedName(excel_nickname, excel_user_id, is_hxo_view) {
-        if (is_hxo_view) {
-            return ''
-        }
-        var d_name = '', nickname;
-        // console.log(excel_nickname, excel_user_id);
-
-        if (excel_nickname) {
-            d_name = excel_nickname + '(已离职)'
-        }
-        ;
-        nickname = excel_user_id && _getUserInfo(excel_user_id) ? _getUserInfo(excel_user_id).nickname : d_name;
-
-        return nickname;
-    },
     isPlainObject: function (obj) {
         var proto, Ctor;
 
@@ -270,49 +232,6 @@ const api = {
         } else {
             return [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         }
-    },
-    // 对象的深度复制
-    clone: function copy(copyObj) {
-        const type = Object.prototype.toString.call(copyObj);
-        if (~['[object Array]', '[object Object]'].indexOf(type)) {
-            const target = type === '[object Array]' ? [] : {};
-            for (let key in copyObj) {
-                target[key] = copy(copyObj[key]);
-            }
-            return target
-        }
-        return copyObj
-    },
-    /**
-     * 对象的深度复制
-     * @param obj
-     * @returns {{}}
-     */
-    objectDepthCopy: function (obj) {
-        var temp = null;
-        if (obj && !(obj instanceof Array)) {
-            temp = {};
-            for (var item in obj) {
-                if (obj[item] && typeof obj[item] == 'object') {
-                    //if(item == '')
-                    temp[item] = this.objectDepthCopy(obj[item]);
-                } else {
-                    temp[item] = obj[item];
-                }
-            }
-        } else {
-            temp = [];
-            if (obj) {
-                for (var i = 0, _i = obj.length; i < _i; i++) {
-                    if (obj[i] && typeof obj[i] == 'object') {
-                        temp[i] = this.objectDepthCopy(obj[i]);
-                    } else {
-                        temp[i] = obj[i];
-                    }
-                }
-            }
-        }
-        return temp;
     },
     getCss(o, key) {
         return o.currentStyle ? o.currentStyle[key] : document.defaultView.getComputedStyle(o, false)[key];
@@ -465,56 +384,6 @@ const api = {
             arr[i] = obj[keys[i]];
         }
         return arr;
-    },
-    /**
-     * 计算返回值
-     * @param  {Object} item excel字段
-     * @return {String}      [description]
-     */
-    judgeExcel(item) {
-        if (!item.value) {
-            return '';
-        }
-        if (item.value.type == 28) {
-            return item.hint;
-        }
-        if (item.value.type == 4 || item.value.type == 19) {
-            if (item.value.files && item.value.files.length) {
-                let html = '';
-                item.value.files.forEach(file => {
-                    if (file.type == 'pic' || file.type == 1) {
-                        html += `<img src="${file.file_url}" onclick="window.rootVue.vm.$preview.showImgDetail(this)" style="width: 30px; height: 30px;cursor: pointer;"/> `
-                    } else {
-                        var name = file.file_name || file.title
-                        var url = name && `/newFilePreview?type=${name.split('.').pop()}&file_name=${name}&file_id=${file.file_id || file._id}`;
-                        html += `<a href="${url}" class="link">${name}</a>`
-                    }
-                })
-                return html
-            } else {
-                return '未填写'
-            }
-
-        }
-        if (item.value.value_name) {
-            return item.value.value_name;
-        }
-        if (item.value.value_names && item.value.value_names.length) {
-            return item.value.value_names[0];
-        }
-        if (item.value.value) {
-            return item.value.value;
-        }
-        if (item.value.values && item.value.values.length) {
-            return item.value.values[0];
-        }
-        if (item.value.files && item.value.files.length) {
-            return item.value.files;
-        }
-        if (item.value.table && item.value.table.length) {
-            return item.value.table.length + '项';
-        }
-        return '未填写'
     },
     sendNotice(type, timeout) {
         if (!type) {
@@ -685,7 +554,6 @@ const api = {
             }
         };
     },
-
     //去掉字符串前后空格
     trim(str) {
         return 'undefined' !== typeof str.trim ? str.trim() : str.replace(/(^\s*)|(\s*$)/g, '');
@@ -710,7 +578,6 @@ const api = {
         url = url.substr(url.lastIndexOf('.') + 1);
         return true === islower ? url.toLowerCase() : url.toUpperCase();
     },
-
     //字符串转日期
     str2date(strdate) {
         let arr = strdate.split(/[- \/:]/g) || [];
@@ -834,23 +701,6 @@ const api = {
             return url.replace(/\!\w*/, '');
         }
     },
-    //筛选用户
-    queryusers(keywords, source) {
-        let res = [];
-        keywords = keywords.toUpperCase();
-        if (keywords !== '') {
-            api.each(source, function (user, index) {
-                if (user.nickname_en && -1 < user.nickname_en.replace('/,/g', '').toUpperCase().indexOf(keywords)) {
-                    res.push(user);
-                    return true;
-                } else if (user.nickname && -1 < user.nickname.replace('/,/g', '').toUpperCase().indexOf(keywords)) {
-                    res.push(user);
-                    return true;
-                }
-            });
-        }
-        return res;
-    },
     formatDate(date, format) {
         if (Object.prototype.toString.call(date) != '[object Date]') {
             date = new Date(date.replace(/-/g, "/"));
@@ -885,32 +735,6 @@ const api = {
             return cfg[m];
         });
     },
-    /*//向pomelo服务器发送消息
-    send_comment( opt ) {
-        let params = {
-            httpType: 'post',
-            serviceName: 'task',
-            functionName: 'addComment',
-            user_id: '',
-            token: '',
-        };
-        if( opt.type ){
-            params.sub_type = opt.type;
-        }
-        if( opt.data ){
-            params.data = opt.data;
-        }
-
-        return api.ajax( false, params ).then(( res ) => {
-            if( res && res.result && 'TRUE'===res.result ) {
-
-            } else {
-                //
-            }
-        }, ( res ) => {
-            //
-        });
-    }*/
 };
 //扩展部分
 api.extend(api, {
