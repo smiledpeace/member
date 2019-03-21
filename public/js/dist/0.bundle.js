@@ -8,7 +8,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "tab"
   }, [_vm._l((_vm.items), function(item) {
     return _c('div', {
-      staticClass: "tab-item"
+      staticClass: "tab-item",
+      on: {
+        "click": function($event) {
+          return _vm.handleClick(item)
+        }
+      }
     }, [_vm._v(_vm._s(item.label))])
   }), _vm._v(" "), _c('div', {
     staticClass: "tab-bar"
@@ -28,7 +33,13 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('tab'), _vm._v(" "), _c('div', {
+  return _c('div', [_c('tab', {
+    on: {
+      "click": _vm.handleClick
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "feed-wrap"
+  }, [_c('div', {
     staticClass: "pt10"
   }), _vm._v(" "), _c('card', {
     class: {
@@ -70,19 +81,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: {
       'ha': _vm.show
     }
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _c('div', {
-    staticClass: "video-box"
-  }, [_c('video', {
-    ref: "video",
-    attrs: {
-      "src": "https://groups35-notimage.b0.upaiyun.com/2019/03/bf6fea24_adbe3124960236c5f061b9e000a7faa7.mp4",
-      "preload": "metadata"
-    }
-  })]), _vm._v(" "), _c('button', {
-    on: {
-      "click": _vm.play
-    }
-  }, [_vm._v("play")])], 1)
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1)])])], 1)], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "card-img_box"
@@ -217,8 +216,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
 
 exports.default = {
     name: "index",
@@ -236,9 +233,8 @@ exports.default = {
 
             this.show = true;
         },
-        play: function play() {
-
-            this.$refs.video.play();
+        handleClick: function handleClick(item) {
+            console.log(item);
         }
     },
     props: {
@@ -471,7 +467,11 @@ exports.default = {
         };
     },
 
-    methods: {},
+    methods: {
+        handleClick: function handleClick(item) {
+            this.$emit('click', item);
+        }
+    },
     props: {},
     components: {}
 };

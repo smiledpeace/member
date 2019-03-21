@@ -1,6 +1,6 @@
 <template>
     <div class="tab">
-        <div class="tab-item" v-for="item in items">{{ item.label }}</div>
+        <div class="tab-item" v-for="item in items" @click="handleClick(item)">{{ item.label }}</div>
         <div class="tab-bar"></div>
     </div>
 </template>
@@ -21,7 +21,11 @@
                 ]
             }
         },
-        methods: {},
+        methods: {
+            handleClick(item) {
+                this.$emit('click', item);
+            }
+        },
         props: {},
         components: {},
     }

@@ -1,39 +1,37 @@
 <template>
     <div >
-        <tab></tab>
-        <div class="pt10"></div>
-        <card @on-click="showNavigation" :class="{'move10': show}"></card>
-        <div class="pt10"></div>
+        <tab @click="handleClick"></tab>
 
-        <card @on-click="showNavigation" :class="{'move10': show}"></card>
-        <div class="pt10"></div>
+        <div class="feed-wrap">
+            <div class="pt10"></div>
+            <card @on-click="showNavigation" :class="{'move10': show}"></card>
+            <div class="pt10"></div>
 
-        <card @on-click="showNavigation" :class="{'move10': show}"></card>
-        <div class="navigation" :class="{'show': show}" @click="show = false;">
-            <div class="card" :class="{'ha': show}">
-                <div class="card-img_box">
-                    <img src="/images/wind.jpg" alt="" class="card-img">
-                </div>
-                <div class="p16">
-                    <div class="card-title">望岳</div>
-                    <div class="card-title_second">杜甫（唐）</div>
-                    <div class="card-info">
-                        <p class="pb10">岱宗夫如何，齐鲁青未了。</p>
-                        <p class="pb10">造化钟神秀，阴阳割昏晓。</p>
-                        <p class="pb10">荡胸生层云，决眦入归鸟。</p>
-                        <p >会当凌绝顶，一览众山小。</p>
+            <card @on-click="showNavigation" :class="{'move10': show}"></card>
+            <div class="pt10"></div>
+
+            <card @on-click="showNavigation" :class="{'move10': show}"></card>
+            <div class="navigation" :class="{'show': show}" @click="show = false;">
+                <div class="card" :class="{'ha': show}">
+                    <div class="card-img_box">
+                        <img src="/images/wind.jpg" alt="" class="card-img">
+                    </div>
+                    <div class="p16">
+                        <div class="card-title">望岳</div>
+                        <div class="card-title_second">杜甫（唐）</div>
+                        <div class="card-info">
+                            <p class="pb10">岱宗夫如何，齐鲁青未了。</p>
+                            <p class="pb10">造化钟神秀，阴阳割昏晓。</p>
+                            <p class="pb10">荡胸生层云，决眦入归鸟。</p>
+                            <p >会当凌绝顶，一览众山小。</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
-
         </div>
 
-        <div class="video-box">
 
-            <video ref="video" src="https://groups35-notimage.b0.upaiyun.com/2019/03/bf6fea24_adbe3124960236c5f061b9e000a7faa7.mp4" preload="metadata"></video>
-        </div>
-
-        <button @click="play">play</button>
     </div>
 </template>
 <script>
@@ -56,9 +54,8 @@
 
                 this.show = true;
             },
-            play() {
-
-                this.$refs.video.play()
+            handleClick(item) {
+                console.log(item);
             }
         },
         props: {
