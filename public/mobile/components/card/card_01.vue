@@ -1,7 +1,7 @@
 <template>
     <div class="card" @click="fullScreen" :class="{'full-screen': full}">
         <div class="card-img_box">
-            <img src="/images/wind.jpg" alt="" class="card-img">
+            <img src="https://groups35-images.b0.upaiyun.com/2019/03/933b12de_harry-potter.jpg!normal" alt="" class="card-img">
         </div>
         <div class="p16 bgwh">
 
@@ -19,7 +19,8 @@
 岱宗夫如何，齐鲁青未了。
 造化钟神秀，阴阳割昏晓。
 荡胸生层云，决眦入归鸟。
-会当凌绝顶，一览众山小。-->
+会当凌绝顶，一览众山小。
+/images/wind.jpg-->
         </div>
     </div>
 </template>

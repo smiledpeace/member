@@ -135,7 +135,7 @@ var Component = __webpack_require__(41)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "G:\\project\\member\\public\\mobile\\nativeApps\\index.vue"
+Component.options.__file = "G:\\member\\public\\mobile\\nativeApps\\index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -220,7 +220,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
     name: "index",
     created: function created() {},
-    mounted: function mounted() {},
+    mounted: function mounted() {
+        var _this = this;
+
+        this.$nextTick(function () {
+            _this.saveAs();
+        });
+    },
     data: function data() {
         return {
             uuid: this.$fn.uuid(),
@@ -235,6 +241,44 @@ exports.default = {
         },
         handleClick: function handleClick(item) {
             console.log(item);
+        },
+        saveAs: function saveAs() {
+            var triggerEvent = "touchstart"; //指定下载方式
+
+            function saveAs(Url) {
+
+                var blob = new Blob([''], { type: 'application/octet-stream' });
+
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+
+                a.href = Url;
+
+                a.download = Url.replace(/(.*\/)*([^.]+.*)/ig, "$2").split("?")[0];
+
+                console.log(url);
+
+                var event = document.createEvent('Event');
+
+                event.initEvent('click', true, true);
+
+                a.dispatchEvent(event);
+
+                URL.revokeObjectURL(url);
+            }
+
+            var imgs = document.getElementsByTagName("img");
+
+            for (var i = 0, o; o = imgs[i]; i++) {
+
+                o.addEventListener(triggerEvent, function () {
+
+                    var url = this.getAttribute("src");
+                    console.log(url);
+                    saveAs(url);
+                }, false);
+            }
         }
     },
     props: {
@@ -267,7 +311,7 @@ var Component = __webpack_require__(41)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "G:\\project\\member\\public\\mobile\\components\\card\\card_01.vue"
+Component.options.__file = "G:\\member\\public\\mobile\\components\\card\\card_01.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] card_01.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -301,6 +345,7 @@ module.exports = Component.exports
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+//
 //
 //
 //
@@ -368,7 +413,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "card-img",
     attrs: {
-      "src": "/images/wind.jpg",
+      "src": "https://groups35-images.b0.upaiyun.com/2019/03/933b12de_harry-potter.jpg!normal",
       "alt": ""
     }
   })])
@@ -415,7 +460,7 @@ var Component = __webpack_require__(41)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "G:\\project\\member\\public\\mobile\\components\\tab\\tab.vue"
+Component.options.__file = "G:\\member\\public\\mobile\\components\\tab\\tab.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] tab.vue: functional components are not supported with templates, they should use render functions.")}
 
