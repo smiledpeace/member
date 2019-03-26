@@ -29,7 +29,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		2: 0
+/******/ 		3: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -12940,10 +12940,13 @@ exports.default = {
     },
     components: {
         index: function index() {
-            return __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 91));
+            return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 92));
         },
         test: function test() {
-            return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 92));
+            return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 93));
+        },
+        background: function background() {
+            return __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 94));
         }
     }
 };

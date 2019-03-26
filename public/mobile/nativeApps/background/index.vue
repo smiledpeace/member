@@ -1,11 +1,11 @@
 <template>
-    <component :is="type" :param1="param1" :param2="param2" :param3="param3" :param4="param4"></component>
+    <component :is="param1"></component>
 </template>
 
 <script>
-
+    import position from './background-position';
     export default {
-        name: "App",
+        name: "index",
         created() {
         },
         mounted() {
@@ -15,16 +15,17 @@
         },
         methods: {},
         props: {
-            type: String,
             param1: String,
             param2: String,
             param3: String,
             param4: String,
         },
         components: {
-            index: () => import('./nativeApps/index'),
-            test: () => import('./nativeApps/test'),
-            background: () => import('./nativeApps/background/index'),
+            position
         },
     }
 </script>
+
+<style lang="less" rel="stylesheet/less">
+
+</style>
