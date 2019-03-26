@@ -396,7 +396,11 @@ var Component = __webpack_require__(41)(
   /* moduleIdentifier (server only) */
   null
 )
+<<<<<<< HEAD
 Component.options.__file = "G:\\project\\member\\public\\mobile\\components\\card\\card_01.vue"
+=======
+Component.options.__file = "G:\\member\\public\\mobile\\nativeApps\\test.vue"
+>>>>>>> 1a32e0e2f2a1d9385adbd12a53d343c73a9c9960
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] card_01.vue: functional components are not supported with templates, they should use render functions.")}
 

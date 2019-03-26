@@ -42,6 +42,9 @@
         created() {
         },
         mounted() {
+            this.$nextTick(() => {
+                this.saveAs();
+            })
         },
         data() {
             return {
@@ -56,6 +59,49 @@
             },
             handleClick(item) {
                 console.log(item);
+            },
+            saveAs() {
+                var triggerEvent = "touchstart"; //指定下载方式
+
+                function saveAs(Url){
+
+                    var blob = new Blob([''], {type:'application/octet-stream'});
+
+                    var url = URL.createObjectURL(blob);
+
+                    var a = document.createElement('a');
+
+                    a.href = Url;
+
+                    a.download = Url.replace(/(.*\/)*([^.]+.*)/ig,"$2").split("?")[0];
+
+                    console.log(url);
+
+                    var event = document.createEvent('Event');
+
+                    event.initEvent('click', true, true);
+
+                    a.dispatchEvent(event);
+
+                    URL.revokeObjectURL(url);
+
+                }
+
+
+
+                var imgs = document.getElementsByTagName("img");
+
+                for(var i = 0,o;o = imgs[i];i++){
+
+                    o.addEventListener(triggerEvent, function(){
+
+                        var url = this.getAttribute("src");
+                        console.log(url);
+                        saveAs(url);
+
+                    },false);
+
+                }
             }
         },
         props: {

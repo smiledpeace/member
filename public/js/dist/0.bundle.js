@@ -38,7 +38,44 @@ exports = module.exports = __webpack_require__(91)(false);
 // module
 exports.push([module.i, "", ""]);
 
+<<<<<<< HEAD
 // exports
+=======
+var disposed = false
+var Component = __webpack_require__(41)(
+  /* script */
+  __webpack_require__(94),
+  /* template */
+  __webpack_require__(101),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "G:\\member\\public\\mobile\\nativeApps\\index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5b45efec", Component.options)
+  } else {
+    hotAPI.reload("data-v-5b45efec", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+>>>>>>> 1a32e0e2f2a1d9385adbd12a53d343c73a9c9960
 
 
 /***/ }),
@@ -62,12 +99,68 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
     name: "index",
     created: function created() {},
-    mounted: function mounted() {},
+    mounted: function mounted() {
+        var _this = this;
+
+        this.$nextTick(function () {
+            _this.saveAs();
+        });
+    },
     data: function data() {
         return {};
     },
 
+<<<<<<< HEAD
     methods: {},
+=======
+    methods: {
+        showNavigation: function showNavigation() {
+
+            this.show = true;
+        },
+        handleClick: function handleClick(item) {
+            console.log(item);
+        },
+        saveAs: function saveAs() {
+            var triggerEvent = "touchstart"; //指定下载方式
+
+            function saveAs(Url) {
+
+                var blob = new Blob([''], { type: 'application/octet-stream' });
+
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+
+                a.href = Url;
+
+                a.download = Url.replace(/(.*\/)*([^.]+.*)/ig, "$2").split("?")[0];
+
+                console.log(url);
+
+                var event = document.createEvent('Event');
+
+                event.initEvent('click', true, true);
+
+                a.dispatchEvent(event);
+
+                URL.revokeObjectURL(url);
+            }
+
+            var imgs = document.getElementsByTagName("img");
+
+            for (var i = 0, o; o = imgs[i]; i++) {
+
+                o.addEventListener(triggerEvent, function () {
+
+                    var url = this.getAttribute("src");
+                    console.log(url);
+                    saveAs(url);
+                }, false);
+            }
+        }
+    },
+>>>>>>> 1a32e0e2f2a1d9385adbd12a53d343c73a9c9960
     props: {
         param1: String,
         param2: String,
@@ -104,7 +197,11 @@ var Component = __webpack_require__(41)(
   /* moduleIdentifier (server only) */
   null
 )
+<<<<<<< HEAD
 Component.options.__file = "G:\\project\\member\\public\\mobile\\nativeApps\\background\\background-position.vue"
+=======
+Component.options.__file = "G:\\member\\public\\mobile\\components\\card\\card_01.vue"
+>>>>>>> 1a32e0e2f2a1d9385adbd12a53d343c73a9c9960
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] background-position.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -187,6 +284,30 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+>>>>>>> 1a32e0e2f2a1d9385adbd12a53d343c73a9c9960
 
 exports.default = {
     name: "background-position",
@@ -210,7 +331,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _vm._m(0)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
+<<<<<<< HEAD
     staticClass: "p16 background"
+=======
+    staticClass: "card-img_box"
+  }, [_c('img', {
+    staticClass: "card-img",
+    attrs: {
+      "src": "https://groups35-images.b0.upaiyun.com/2019/03/933b12de_harry-potter.jpg!normal",
+      "alt": ""
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "p16 bgwh"
+>>>>>>> 1a32e0e2f2a1d9385adbd12a53d343c73a9c9960
   }, [_c('div', {
     staticClass: "background-position"
   }, [_vm._v("123 123412 124123 12341232 ")])])
@@ -346,7 +481,11 @@ var Component = __webpack_require__(41)(
   /* moduleIdentifier (server only) */
   null
 )
+<<<<<<< HEAD
 Component.options.__file = "G:\\project\\member\\public\\mobile\\nativeApps\\background\\index.vue"
+=======
+Component.options.__file = "G:\\member\\public\\mobile\\components\\tab\\tab.vue"
+>>>>>>> 1a32e0e2f2a1d9385adbd12a53d343c73a9c9960
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
