@@ -19,7 +19,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "card-img",
     attrs: {
-      "src": "/images/wind.jpg",
+      "src": "https://groups35-images.b0.upaiyun.com/2019/03/933b12de_harry-potter.jpg!normal",
       "alt": ""
     }
   })])
@@ -210,7 +210,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: {
       'ha': _vm.show
     }
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1)])])], 1)], 1)
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1)])])], 1), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": "http://localhost:3000/qrcode?time=10000"
+    }
+  })], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "card-img_box"
@@ -345,11 +349,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
     name: "index",
     created: function created() {},
-    mounted: function mounted() {},
+    mounted: function mounted() {
+        var _this = this;
+
+        this.$nextTick(function () {
+            _this.saveAs();
+        });
+    },
     data: function data() {
         return {
             uuid: this.$fn.uuid(),
@@ -364,6 +375,44 @@ exports.default = {
         },
         handleClick: function handleClick(item) {
             console.log(item);
+        },
+        saveAs: function saveAs() {
+            var triggerEvent = "touchstart"; //指定下载方式
+
+            function saveAs(Url) {
+
+                var blob = new Blob([''], { type: 'application/octet-stream' });
+
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+
+                a.href = Url;
+
+                a.download = Url.replace(/(.*\/)*([^.]+.*)/ig, "$2").split("?")[0];
+
+                console.log(url);
+
+                var event = document.createEvent('Event');
+
+                event.initEvent('click', true, true);
+
+                a.dispatchEvent(event);
+
+                URL.revokeObjectURL(url);
+            }
+
+            var imgs = document.getElementsByTagName("img");
+
+            for (var i = 0, o; o = imgs[i]; i++) {
+
+                o.addEventListener(triggerEvent, function () {
+
+                    var url = this.getAttribute("src");
+                    console.log(url);
+                    saveAs(url);
+                }, false);
+            }
         }
     },
     props: {
@@ -396,11 +445,7 @@ var Component = __webpack_require__(41)(
   /* moduleIdentifier (server only) */
   null
 )
-<<<<<<< HEAD
 Component.options.__file = "G:\\project\\member\\public\\mobile\\components\\card\\card_01.vue"
-=======
-Component.options.__file = "G:\\member\\public\\mobile\\nativeApps\\test.vue"
->>>>>>> 1a32e0e2f2a1d9385adbd12a53d343c73a9c9960
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] card_01.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -434,6 +479,7 @@ module.exports = Component.exports
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+//
 //
 //
 //

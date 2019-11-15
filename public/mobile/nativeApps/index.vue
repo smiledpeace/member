@@ -32,6 +32,7 @@
         </div>
 
 
+        <img src='http://localhost:3000/qrcode?time=10000'/>
     </div>
 </template>
 <script>

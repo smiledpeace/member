@@ -42,4 +42,9 @@ app.use(function(err, req, res, next) {
   res.render('web/common/error');
 });
 
+
+app.all("*",function(req,res,next){
+  res.header("Access-Control-Allow-Origin","*"); //允许所有访问者跨域请求
+  next();
+})
 module.exports = app;
