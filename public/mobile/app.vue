@@ -25,6 +25,7 @@
             index: () => import('./nativeApps/index'),
             test: () => import('./nativeApps/test'),
             background: () => import('./nativeApps/background/index'),
+            qr: () => import('./nativeApps/qrcode/qr'),
         },
     }
 </script>

@@ -29,7 +29,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		3: 0
+/******/ 		4: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -142,7 +142,7 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 42);
+/******/ 	return __webpack_require__(__webpack_require__.s = 43);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -896,10 +896,16 @@ module.exports = function normalizeComponent (
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = (__webpack_require__(18))(2);
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
-var _vue = __webpack_require__(43);
+var _vue = __webpack_require__(44);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -941,7 +947,7 @@ var vm = new _vue2.default({
 });
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
@@ -12852,13 +12858,7 @@ var vm = new _vue2.default({
 
 }));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44), __webpack_require__(45).setImmediate))
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(18))(2);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(42), __webpack_require__(45).setImmediate))
 
 /***/ }),
 /* 45 */
@@ -12940,13 +12940,16 @@ exports.default = {
     },
     components: {
         index: function index() {
-            return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 92));
+            return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 92));
         },
         test: function test() {
-            return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 93));
+            return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, 93));
         },
         background: function background() {
-            return __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 94));
+            return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 94));
+        },
+        qr: function qr() {
+            return __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 95));
         }
     }
 };
